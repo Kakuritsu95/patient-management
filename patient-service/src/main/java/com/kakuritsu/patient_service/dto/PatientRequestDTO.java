@@ -1,5 +1,6 @@
 package com.kakuritsu.patient_service.dto;
 
+import com.kakuritsu.patient_service.dto.validators.CreatePatientValidationGroup;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -9,8 +10,8 @@ public class PatientRequestDTO {
     @Size(max = 100, message = "Name cannot exceed 100 characters")
     private String name;
 
-    @NotBlank(message = "Email is required")
-    @Email(message = "Email should be valid")
+    @NotBlank(groups = {CreatePatientValidationGroup.class}, message = "Email is required")
+    @Email(groups = {CreatePatientValidationGroup.class},message = "Email should be valid")
     private String email;
 
     @NotBlank(message = "Address is required")
@@ -19,7 +20,7 @@ public class PatientRequestDTO {
     @NotBlank(message = "Date of birth is required")
     private String dateOfBirth;
 
-    @NotBlank(message = "Registered date is required")
+    @NotBlank(groups = {CreatePatientValidationGroup.class}, message = "Registered date is required")
     private String registeredDate;
 
     public String getName() {

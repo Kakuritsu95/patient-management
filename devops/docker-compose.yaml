@@ -1,0 +1,48 @@
+name: "patients-management"
+services:
+
+  db:
+    image: postgres:latest
+    networks:
+      - internal
+    container_name: patient-service-db
+    restart: always
+
+    volumes:
+      - type: bind
+        source: C:/Users/user/patients-db
+        target: /var/lib/postgresql/data
+
+    environment:
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: db
+
+    ports:
+      - "5000:5432"
+
+    expose:
+      - "5000"
+
+  patient-service:
+    build:
+      context: ../patient-service
+      dockerfile: Dockerfile
+    image: patient-service:latest
+    container_name: patient-service
+    ports:
+      - "4000:4000"
+    expose:
+      - "4000"
+    env_file:
+      - env.dev
+
+    networks:
+      - internal
+
+
+networks:
+
+  internal:
+    name: internal
+
