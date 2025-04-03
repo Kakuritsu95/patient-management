@@ -1,0 +1,50 @@
+# IntelliJ IDEA specific
+.idea/
+*.iml
+*.iws
+out/
+
+# Compiled class files
+*.class
+
+# Log files
+logs/
+*.log
+
+# Temporary files
+*.swp
+*.swo
+
+# Build directories
+/target/
+/build/
+
+# Maven and Gradle
+.mvn/
+!**/.mvn/wrapper/maven-wrapper.jar
+mvnw
+mvnw.cmd
+target
+
+.gradle/
+**/build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+*.war
+*.jar
+
+# Application config
+application.properties
+application.yml
+
+# Sensitive files
+
+secrets/
+config/
+
+.gitattributes
+
