@@ -6,7 +6,6 @@ import com.kakuritsu.patient_service.dto.validators.CreatePatientValidationGroup
 import com.kakuritsu.patient_service.service.PatientService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import jakarta.validation.groups.Default;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -50,4 +49,6 @@ public class PatientController {
         patientService.deletePatient(id);
         return  ResponseEntity.noContent().build();
     }
+
+
 }

@@ -4,6 +4,8 @@
 *.iws
 out/
 
+env*
+
 # Compiled class files
 *.class
 
@@ -45,6 +47,7 @@ application.yml
 
 secrets/
 config/
+
 
 .gitattributes
 

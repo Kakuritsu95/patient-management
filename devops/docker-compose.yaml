@@ -40,6 +40,33 @@ services:
     networks:
       - internal
 
+  billing-service:
+    build:
+      context: ../billing-service
+      dockerfile: Dockerfile
+    image: billing-service:latest
+    container_name: billing-service
+    ports:
+      - "4001:9001"
+    expose:
+      - "4001"
+    networks:
+      - internal
+
+  kafka:
+      image: 'bitnami/kafka:latest'
+      container_name: kafka
+      networks:
+        - internal
+      env_file:
+        - env.dev
+
+      ports:
+        - "9092:9092"
+        - "9094:9094"
+      expose:
+        - "9092"
+        - "9094"
 
 networks:
 
