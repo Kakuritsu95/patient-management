@@ -18,11 +18,6 @@ services:
         POSTGRES_PASSWORD: password
         POSTGRES_DB: db
 
-    ports:
-      - "5000:5432"
-
-    expose:
-      - "5000"
 
   patient-service:
     build:
@@ -30,8 +25,6 @@ services:
       dockerfile: Dockerfile
     image: patient-service:latest
     container_name: patient-service
-    ports:
-      - "4000:4000"
     expose:
       - "4000"
     env_file:
@@ -53,6 +46,17 @@ services:
     networks:
       - internal
 
+  analytics-service:
+    build:
+      context: ../analytics-service
+      dockerfile: Dockerfile
+    image: analytics-service:latest
+    container_name: analytics-service
+    env_file:
+      - env.dev
+    networks:
+      - internal
+
   kafka:
       image: 'bitnami/kafka:latest'
       container_name: kafka
@@ -67,6 +71,20 @@ services:
       expose:
         - "9092"
         - "9094"
+  api-gateway:
+    build:
+      context: ../api-gateway
+      dockerfile: Dockerfile
+    image: api-gateway:latest
+    container_name: api-gateway
+    ports:
+      - "4004:4004"
+    expose:
+      - "4004"
+    env_file:
+      - env.dev
+    networks:
+      - internal
 
 networks:
 

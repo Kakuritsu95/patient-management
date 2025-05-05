@@ -1,4 +1,4 @@
-package com.kakuritsu.analyticsservice;
+package com.kakuritsu.analytics_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

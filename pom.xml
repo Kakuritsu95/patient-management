@@ -16,6 +16,7 @@
         <module>patient-service</module>
         <module>billing-service</module>
         <module>analytics-service</module>
+        <module>api-gateway</module>
     </modules>
 
     <name>patient-management</name>
@@ -23,6 +24,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>3.4.4</version>
+            </dependency>
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
